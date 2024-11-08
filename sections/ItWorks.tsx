@@ -1,4 +1,5 @@
 import { useSection } from "@deco/deco/hooks";
+
 export interface Props {
   /**
    * @title Nome da seção
@@ -12,6 +13,7 @@ export interface Props {
   name?: string;
   count?: number;
 }
+
 /**
  * @title {{#sectionName}}{{sectionName}}{{/sectionName}}{{^sectionName}}It Works!{{/sectionName}}
  */
