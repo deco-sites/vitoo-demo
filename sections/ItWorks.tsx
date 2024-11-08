@@ -1,16 +1,20 @@
-import { useSection } from "deco/hooks/useSection.ts";
-
+import { useSection } from "@deco/deco/hooks";
 export interface Props {
+  /**
+   * @title Nome da seção
+   */
+  sectionName: string;
   /**
    * @format rich-text
    * @description The description of name.
    * @default It Works!
    */
   name?: string;
-
   count?: number;
 }
-
+/**
+ * @title {{#sectionName}}{{sectionName}}{{/sectionName}}{{^sectionName}}It Works!{{/sectionName}}
+ */
 export default function Section({ name = "It Works!", count = 0 }: Props) {
   /**
    * useSection is a nice hook for getting the HTMX link to render this section,
@@ -18,7 +22,6 @@ export default function Section({ name = "It Works!", count = 0 }: Props) {
    */
   const downLink = useSection({ props: { count: count - 1 } });
   const upLink = useSection({ props: { count: count + 1 } });
-
   return (
     <div
       id="it-works"
